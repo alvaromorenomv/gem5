@@ -52,6 +52,7 @@ class RubyController(ClockedObject):
         [AllMemory], "Address range this controller responds to"
     )
     cluster_id = Param.UInt32(0, "Id of this controller's cluster")
+    numa_id = Param.UInt32(0, "NUMA Node identifier of this controller")
 
     transitions_per_cycle = Param.Int(
         32, "no. of  SLICC state machine transitions per cycle"

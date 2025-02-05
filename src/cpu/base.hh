@@ -122,6 +122,11 @@ class BaseCPU : public ClockedObject
      */
     const uint32_t _socketId;
 
+    /**
+     * NUMA node ID
+     */
+    const uint32_t _numaId;
+
     /** instruction side request id that must be placed in all requests */
     RequestorID _instRequestorId;
 

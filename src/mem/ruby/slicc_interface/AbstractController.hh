@@ -393,6 +393,8 @@ class AbstractController : public ClockedObject, public Consumer
     const NodeID m_version;
     MachineID m_machineID;
     const NodeID m_clusterID;
+    typedef unsigned int NumaID;
+    const NumaID m_numaID;
 
     // RequestorID used by some components of gem5.
     const RequestorID m_id;

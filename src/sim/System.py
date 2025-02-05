@@ -86,6 +86,10 @@ class System(SimObject):
         [], "Ranges that constitute main memory"
     )
 
+    mem_range_numa_ids = VectorParam.Int(
+        [], "NUMA node IDs corresponding to mem_ranges"
+    )
+
     # The ranges backed by a shadowed ROM
     shadow_rom_ranges = VectorParam.AddrRange(
         [], "Ranges  backed by a shadowed ROM"

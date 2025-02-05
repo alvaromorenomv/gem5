@@ -55,7 +55,7 @@ namespace ruby
 
 AbstractController::AbstractController(const Params &p)
     : ClockedObject(p), Consumer(this), m_version(p.version),
-      m_clusterID(p.cluster_id),
+      m_clusterID(p.cluster_id),m_numaID(p.numa_id),
       m_id(p.system->getRequestorId(this)), m_is_blocking(false),
       m_number_of_TBEs(p.number_of_TBEs),
       m_transitions_per_cycle(p.transitions_per_cycle),

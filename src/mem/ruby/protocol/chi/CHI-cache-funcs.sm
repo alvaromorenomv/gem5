@@ -813,10 +813,10 @@ bool needCacheEntry(CHIRequestType req_type,
                                    (req_type == CHIRequestType:WriteCleanFull) ||
                                    (req_type == CHIRequestType:WriteEvictFull) ||
                                    (is_HN && (req_type == CHIRequestType:WriteUniqueFull)))) ||
-           (alloc_on_seq_acc && ((req_type == CHIRequestType:Load) ||
-                                 (req_type == CHIRequestType:Store) ||
-                                 (req_type == CHIRequestType:AtomicLoad) ||
-                                 (req_type == CHIRequestType:AtomicStore))) ||
+           (alloc_on_seq_acc_load && ((req_type == CHIRequestType:Load) ||
+                                     (req_type == CHIRequestType:AtomicLoad))) ||
+           (alloc_on_seq_acc_store && ((req_type == CHIRequestType:Store) ||
+                                      (req_type == CHIRequestType:AtomicStore))) ||
            (alloc_on_seq_line_write && (req_type == CHIRequestType:StoreLine)) ||
            (alloc_on_atomic && ((req_type == CHIRequestType:AtomicReturn) ||
                                  (req_type == CHIRequestType:AtomicNoReturn)));

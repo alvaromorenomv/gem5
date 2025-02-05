@@ -100,6 +100,7 @@ class BaseCPU(ClockedObject):
     system = Param.System(Parent.any, "system object")
     cpu_id = Param.Int(-1, "CPU identifier")
     socket_id = Param.Unsigned(0, "Physical Socket identifier")
+    numa_id = Param.Unsigned(0, "Numa Node identifier")
     numThreads = Param.Unsigned(1, "number of HW thread contexts")
     pwr_gating_latency = Param.Cycles(
         300,
@@ -270,6 +271,7 @@ class BaseCPU(ClockedObject):
             node.append(FdtPropertyStrings("device_type", "cpu"))
             node.appendCompatible(["gem5,arm-cpu"])
             node.append(FdtPropertyWords("reg", state.CPUAddrCells(reg)))
+            node.append(FdtPropertyWords("numa-node-id", self.numa_id))
             platform, found = self.system.unproxy(self).find_any(Platform)
             if found:
                 platform.annotateCpuDeviceNode(node, state)
